@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilet & Seyahat Rezervasyonu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Kayan Resim Bölmesi (Yerel Klasörden) -->
+    <section class="slider-container">
+        <div class="slider-track">
+            <img src="resimler1/r1.jpg" alt="Resim 1">
+            <img src="resimler1/r2.jpg" alt="Resim 2">
+            <img src="resimler1/r3.jpg" alt="Resim 3">
+        </div>
+    </section>
+
+    <!-- Seçim Menüleri ve Form -->
+    <main class="form-container">
+        <form id="reservationForm">
+            
+            <!-- 1. Combobox: Nereden -->
+            <div class="form-group">
+                <select id="nereden" required>
+                    <option value="" disabled selected hidden>Nereden</option>
+                    <option value="Aydın">Aydın</option>
+                    <option value="İzmir">İzmir</option>
+                </select>
+            </div>
+
+            <!-- 2. Combobox: Nereye -->
+            <div class="form-group">
+                <select id="nereye" required>
+                    <option value="" disabled selected hidden>Nereye</option>
+                    <option value="Uşak">Uşak</option>
+                    <option value="Denizli">Denizli</option>
+                </select>
+            </div>
+
+            <!-- 3. Combobox: Yolcu -->
+            <div class="form-group">
+                <select id="yolcu" required>
+                    <option value="" disabled selected hidden>Yolcu</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <!-- 4. Combobox: Tarih -->
+            <div class="form-group">
+                <input type="text" id="tarih" placeholder="Tarih Seçiniz" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
+            </div>
+
+            <!-- Hesapla Butonu -->
+            <button type="button" class="calc-btn" onclick="calculatePrice()">
+                Tutar Hesapla
+            </button>
+
+            <!-- Hesaplanan Tutar Gösterge Alanı -->
+            <div id="resultBox" class="result-box" style="display: none;">
+                Hesaplanan Tutar: <span id="totalPrice">0</span> TL
+            </div>
+
+            <!-- WhatsApp Butonu -->
+            <button type="button" class="whatsapp-btn" onclick="sendWhatsAppMessage()">
+                WhatsApp ile Gönder
+            </button>
+
+        </form>
+    </main>
+
+    <script>
+        // Şehirler arası km matrisi
+        const distances = {
+            "Aydın-Uşak": 200,
+            "Aydın-Denizli": 125,
+            "İzmir-Uşak": 210,
+            "İzmir-Denizli": 240
+        };
+
+        let calculatedTotal = null;
+
+        function calculatePrice() {
+            const nereden = document.getElementById("nereden").value;
+            const nereye = document.getElementById("nereye").value;
+            const yolcu = parseInt(document.getElementById("yolcu").value);
+
+            if (!nereden || !nereye || isNaN(yolcu)) {
+                alert("Lütfen hesaplama yapabilmek için Nereden, Nereye ve Yolcu alanlarını seçiniz.");
+                return;
+            }
+
+            const routeKey = `${nereden}-${nereye}`;
+            const km = distances[routeKey] || 0;
+
+            // Hesaplama Mantığı:
+            // (KM * 5 TL) + (Yolcu Sayısı * 50 TL) + 300 TL Sabit Ücret
+            const kmFee = km * 5;
+            const passengerFee = yolcu * 50;
+            calculatedTotal = kmFee + passengerFee + 300;
+
+            // Sonucu Ekrana Yazdırma
+            document.getElementById("totalPrice").innerText = calculatedTotal;
+            document.getElementById("resultBox").style.display = "block";
+        }
+
+        function sendWhatsAppMessage() {
+            const nereden = document.getElementById("nereden").value;
+            const nereye = document.getElementById("nereye").value;
+            const yolcu = document.getElementById("yolcu").value;
+            const tarih = document.getElementById("tarih").value;
+
+            if (!nereden || !nereye || !yolcu || !tarih) {
+                alert("Lütfen tüm alanları doldurunuz.");
+                return;
+            }
+
+            const dateParts = tarih.split("-");
+            const formattedDate = `${dateParts[2]}.${dateParts[1]}.${dateParts[0]}`;
+
+            let message = `Nereden: ${nereden}\n\nNereye: ${nereye}\n\nYolcu Sayısı: ${yolcu}\n\nTarih: ${formattedDate}`;
+            
+            if (calculatedTotal !== null) {
+                message += `\n\nHesaplanan Tutar: ${calculatedTotal} TL`;
+            }
+
+            const phoneNumber = "905064270728";
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
