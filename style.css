@@ -140,30 +140,11 @@ select:focus, input:focus {
     }
 }
 <style>
-    
-	/* Google Çeviri üst bildirim çubuðunu ve iframe'i gizler */
-    .goog-te-banner-frame, 
-    .goog-te-banner-frame.skiptranslate,
-    iframe.goog-te-banner-frame {
+    /* Google'ýn kendi oluþturduðu select menüsünü tamamen gizle */
+    .goog-te-gadget, 
+    #google_translate_element {
         display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
-        width: 0 !important;
-        pointer-events: none !important;
     }
-    
-    /* Çeviri yapýldýðýnda sayfanýn üstten aþaðý kaymasýný ve boþluk kalmasýný engeller */
-    body {
-        top: 0 !important;
-        position: static !important;
-    }
-
-    html {
-        top: 0 !important;
-        position: static !important;
-    }
-	
-	
 
     /* Bayraklarýn her an sabit ve görünür olmasýný saðla */
     .language-flags {
