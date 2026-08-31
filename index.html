@@ -47,6 +47,11 @@
             selectField.dispatchEvent(new Event('change'));
         }
     }
+	// Sayfa yüklendiğinde eski çeviri çerezlerini temizler
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + document.domain + "; path=/;";
+	
+	
 </script>
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
