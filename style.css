@@ -146,11 +146,19 @@ select:focus, input:focus {
         display: none !important;
     }
 
+
+{
+    box-sizing: border-box;
+}
     /* Bayraklarýn her an sabit ve görünür olmasýný saðla */
     .language-flags {
-        display: inline-flex;
+        display: flex;
+		justify-content: flex-end;
+		gap: 10px;
         align-items: center;
-        gap: 8px;
+       
+	   margin-top:20px;
+	   margin-right:20px;
     }
     .language-flags img {
         width: 24px;
