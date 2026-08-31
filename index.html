@@ -67,10 +67,10 @@
                 Hesaplanan Tutar: <span id="totalPrice">0</span> TL
             </div>
 			
-			<input type="text" name="ad" placeholder="Adınız">&nbsp;
-			<input type="text" name="soyad" placeholder="Soyadınız">&nbsp;
-			<input type="text" name="telno" placeholder="Telefon Numaranız">&nbsp;
-			<input type="text" name="eposta" placeholder="Email Adresiniz">&nbsp;
+			<input type="text" id="ad" name="ad" placeholder="Adınız">&nbsp;
+			<input type="text" id="soyad" name="soyad" placeholder="Soyadınız">&nbsp;
+			<input type="text" id="telno" name="telno" placeholder="Telefon Numaranız">&nbsp;
+			<input type="text" id="eposta" name="eposta" placeholder="Email Adresiniz">&nbsp;
 
             <!-- WhatsApp Butonu -->
             <button type="button" class="whatsapp-btn" onclick="sendWhatsAppMessage()">
@@ -121,6 +121,10 @@
             const yolcu = document.getElementById("yolcu").value;
             const tarih = document.getElementById("tarih").value;
 			const ad1=document.getElementById("ad").value;
+			const soyad1=document.getElementById("soyad").value;
+			const telno1=document.getElementById("telno").value;
+			const eposta1=document.getElementById("eposta").value;
+			
 
             if (!nereden || !nereye || !yolcu || !tarih) {
                 alert("Lütfen tüm alanları doldurunuz.");
@@ -130,7 +134,7 @@
             const dateParts = tarih.split("-");
             const formattedDate = `${dateParts[2]}.${dateParts[1]}.${dateParts[0]}`;
 
-            let message = `Nereden: ${nereden}\n\nNereye: ${nereye}\n\nYolcu Sayısı: ${yolcu}\n\nTarih: ${formattedDate}\n\nAdı: ${ad}`;
+            let message = `Nereden: ${nereden}\n\nNereye: ${nereye}\n\nYolcu Sayısı: ${yolcu}\n\nTarih: ${formattedDate}\n\nAdı: ${ad1}\n\nSoyadı: ${soyad1}\n\nTelNo: ${telno1}\n\nEposta: ${eposta1}`;
             
             if (calculatedTotal !== null) {
                 message += `\n\nHesaplanan Tutar: ${calculatedTotal} TL`;
