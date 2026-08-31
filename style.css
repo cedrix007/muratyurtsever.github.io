@@ -140,16 +140,6 @@ select:focus, input:focus {
     }
 }
 <style>
-   
-   /* Google Translate üst banner alanýný ve kaymayý engelle */
-    .goog-te-banner-frame {
-        display: none !important;
-    }
-    body {
-        top: 0px !important;
-        position: static !important;
-    }
-
     /* Google'ýn kendi oluþturduðu select menüsünü tamamen gizle */
     .goog-te-gadget, 
     #google_translate_element {
@@ -173,7 +163,4 @@ select:focus, input:focus {
     .language-flags img:hover {
         transform: scale(1.1);
     }
-
-
-  
 </style>
