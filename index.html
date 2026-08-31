@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilet & Seyahat Rezervasyonu</title>
+    <title>Murat VIP</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -120,6 +120,7 @@
             const nereye = document.getElementById("nereye").value;
             const yolcu = document.getElementById("yolcu").value;
             const tarih = document.getElementById("tarih").value;
+			const ad1=document.getElementById("ad").value;
 
             if (!nereden || !nereye || !yolcu || !tarih) {
                 alert("Lütfen tüm alanları doldurunuz.");
@@ -129,7 +130,7 @@
             const dateParts = tarih.split("-");
             const formattedDate = `${dateParts[2]}.${dateParts[1]}.${dateParts[0]}`;
 
-            let message = `Nereden: ${nereden}\n\nNereye: ${nereye}\n\nYolcu Sayısı: ${yolcu}\n\nTarih: ${formattedDate}`;
+            let message = `Nereden: ${nereden}\n\nNereye: ${nereye}\n\nYolcu Sayısı: ${yolcu}\n\nTarih: ${formattedDate}\n\nAdı: ${ad}`;
             
             if (calculatedTotal !== null) {
                 message += `\n\nHesaplanan Tutar: ${calculatedTotal} TL`;
