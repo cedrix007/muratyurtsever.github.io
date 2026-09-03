@@ -74,7 +74,7 @@
             
             <!-- 1. Combobox: Nereden -->
             <div class="form-group">
-                <select id="nereden" required>
+                <select id="nereden" translate="no" required>
                     <option value="" disabled selected hidden>Nereden</option>
                     <option value="Aydın">Aydın</option>
                     <option value="İzmir">İzmir</option>
@@ -83,7 +83,7 @@
 
             <!-- 2. Combobox: Nereye -->
             <div class="form-group">
-                <select id="nereye" required>
+                <select id="nereye" translate="no" required>
                     <option value="" disabled selected hidden>Nereye</option>
                     <option value="Uşak">Uşak</option>
                     <option value="Denizli">Denizli</option>
@@ -92,7 +92,7 @@
 
             <!-- 3. Combobox: Yolcu -->
             <div class="form-group">
-                <select id="yolcu" required>
+                <select id="yolcu" translate="no" required>
                     <option value="" disabled selected hidden>Yolcu</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -125,7 +125,9 @@
             <!-- WhatsApp Butonu -->
             <button type="button" class="whatsapp-btn" onclick="sendWhatsAppMessage()">
                Randevu Al
-            </button>
+			   
+			   
+		
 
         </form>
     </main>
@@ -196,5 +198,11 @@
             window.open(whatsappUrl, '_blank');
         }
     </script>
+<!-- Sol Alt Köşe Sabit WhatsApp Butonu -->
+<a href="https://wa.me/905064270728" target="_blank" rel="noopener noreferrer" title="WhatsApp ile İletişime Geçin" style="position: fixed; bottom: 20px; left: 20px; width: 60px; height: 60px; z-index: 99999; display: block;">
+    <img src="whatsapp.png" alt="WhatsApp" style="width: 60px; height: 60px; object-fit: contain;">
+</a>
+	
+	
 </body>
 </html>

@@ -172,3 +172,29 @@ select:focus, input:focus {
         transform: scale(1.1);
     }
 </style>
+
+/* Sol Alt Köþede Sabit Kalan WhatsApp Butonu */
+.fixed-whatsapp-btn {
+    position: fixed !important;
+    bottom: 25px !important;
+    left: 25px !important;
+    width: 60px !important;
+    height: 60px !important;
+    z-index: 99999 !important;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    display: block !important;
+}
+
+/* Buton Ýçindeki Resim Boyutu */
+.fixed-whatsapp-btn img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.fixed-whatsapp-btn:hover {
+    transform: scale(1.1);
+}
