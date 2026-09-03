@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda - Murat VIP</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hakkımızda Sayfasına Özel Tasarım */
+        .about-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-container h1 {
+            color: #1a1a1a;
+            font-size: 26px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .about-text {
+            color: #444;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            color: #1a1a1a;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Navigasyon Barı ve Hamburger Menü -->
+    <header class="navbar">
+        <button class="hamburger-btn" onclick="toggleMenu()" aria-label="Menüyü Aç/Kapat">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <div class="logo">Murat VIP</div>
+
+        <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html" onclick="toggleMenu()">Anasayfa</a></li>
+                <li><a href="hakkimizda.html" onclick="toggleMenu()">Hakkımızda</a></li>
+                <li><a href="iletisim.html" onclick="toggleMenu()">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Menü Açıldığında Arka Planı Karartma Katmanı -->
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+    <!-- Dil Çeviri Bölümü -->
+    <div class="language-flags">
+        <a href="#" onclick="changeLanguage('tr'); return false;">
+            <img src="tr.png" width="24" alt="Türkçe" title="Türkçe">
+        </a>
+        <a href="#" onclick="changeLanguage('en'); return false;">
+            <img src="us.png" width="24" alt="English" title="English">
+        </a>
+        <a href="#" onclick="changeLanguage('de'); return false;">
+            <img src="de.png" width="24" alt="Deutsch" title="Deutsch">
+        </a>
+        <a href="#" onclick="changeLanguage('ru'); return false;">
+            <img src="ru.png" width="24" alt="Russia" title="Russia">
+        </a>
+    </div>
+
+    <!-- Google Translate Gizli Widget Alanı -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- HAKKIMIZDA İÇERİK ALANI -->
+    <main class="about-container">
+        <h1>Hakkımızda</h1>
+
+        <div class="about-text">
+            <p>
+                <strong>Murat VIP</strong> olarak, şehir içi ve şehirler arası yolculuklarınızda konforlu, güvenli ve VIP standartlarında ulaşım hizmeti sunuyoruz. Deneyimli sürücü kadromuz ve bakımlı araç filomuz ile yolculuklarınızı keyifli bir deneyime dönüştürmeyi amaçlıyoruz.
+            </p>
+            <p>
+                Aydın, İzmir, Uşak, Denizli ve çevre illerde sunduğumuz transfer hizmetleriyle, zamanında ve güvenilir ulaşımın adresi olmaktan gurur duyuyoruz. Müşteri memnuniyetini her zaman ön planda tutarak 7/24 hizmet vermekteyiz.
+            </p>
+        </div>
+
+        <!-- ÖNE ÇIKAN ÖZELLİKLER KUTULARI -->
+        <div class="about-features">
+            <div class="feature-card">
+                <h3>Güvenli Ulaşım</h3>
+                <p>Düzenli bakımı yapılan VIP araçlarımız ve tecrübeli şoförlerimiz ile güvenliğinizi ön planda tutuyoruz.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Konforlu Yolculuk</h3>
+                <p>Şehirler arası ve şehir içi transferlerinizde en üst düzey konfor standartlarını sunuyoruz.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Tam Zamanında</h3>
+                <p>Planladığınız saatte ve randevularınıza gecikmeden ulaşım sağlama konusunda titizlikle çalışıyoruz.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sol Alt Köşe Sabit WhatsApp Butonu -->
+    <a href="https://wa.me/905064270728" target="_blank" rel="noopener noreferrer" title="WhatsApp ile İletişime Geçin" style="position: fixed; bottom: 20px; left: 20px; width: 60px; height: 60px; z-index: 99999; display: block;">
+        <img src="whatsapp.png" alt="WhatsApp" style="width: 50px; height: 50px; object-fit: contain;">
+    </a>
+
+    <!-- JS Kodları -->
+    <script>
+        // Menü Açma/Kapatma Fonksiyonu
+        function toggleMenu() {
+            const navMenu = document.getElementById("navMenu");
+            const overlay = document.getElementById("menuOverlay");
+            navMenu.classList.toggle("active");
+            overlay.classList.toggle("active");
+        }
+
+        // Google Translate Fonksiyonları
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'tr',
+                includedLanguages: 'tr,en,de,ru',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function changeLanguage(lang) {
+            var selectField = document.querySelector(".goog-te-combo");
+            if (selectField) {
+                selectField.value = lang;
+                selectField.dispatchEvent(new Event('change'));
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
