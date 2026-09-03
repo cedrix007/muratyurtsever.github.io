@@ -198,3 +198,99 @@ select:focus, input:focus {
 .fixed-whatsapp-btn:hover {
     transform: scale(1.1);
 }
+
+/* Üst Bar Tasarýmý */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #c1b6ec; /* Koyu arka plan */
+    padding: 12px 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Logo Tasarýmý */
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f39c12; /* Turuncu logo yazýsý */
+}
+
+
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent; /* Buton arka planý þeffaf */
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+/* 3 adet beyaz çizgi */
+.hamburger-btn .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+
+/* Yandan Kayacak Menü */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    left: -260px; /* Ekranýn sol dýþýna gizler (-260px) */
+    width: 250px;
+    height: 100%;
+    background-color: #222;
+    padding-top: 70px;
+    transition: left 0.3s ease; /* Açýlýrken 0.3 saniyelik kayma efekti */
+    z-index: 999;
+}
+
+/* JavaScript buraya 'active' sýnýfý eklediðinde menü ekrana kayar */
+.nav-menu.active {
+    left: 0;
+}
+
+/* Liste elemanlarýnýn görünümü */
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li a {
+    display: block;
+    color: #fff;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid #333;
+}
+
+.nav-menu ul li a:hover {
+    background-color: #f39c12;
+    color: #000;
+}
+
+.menu-overlay {
+    display: none; /* Varsayýlanda gizli */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Yarý þeffaf siyah */
+    z-index: 998;
+}
+
+/* Menü açýlýnca görünecek */
+.menu-overlay.active {
+    display: block;
+}

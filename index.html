@@ -8,6 +8,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- 1. ÜST BAR VE MENÜ YAPISI -->
+<header class="navbar">
+    <!-- Sol Üstteki 3 Çizgili Hamburger Butonu -->
+    <button class="hamburger-btn" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <!-- Logo / Site Başlığı -->
+    <div class="logo">Murat VIP</div>
+
+    <!-- Yan Menü (Açılır/Kapanır Liste) -->
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Menü açıldığında arka planı karartmak için kullanılacak katman -->
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+
+
+
  <!-- Dil Çeviri bölümü -->
  
  <!-- Yerel Bayrak Butonları -->
@@ -133,6 +162,18 @@
     </main>
 
     <script>
+	
+	function toggleMenu() {
+    // HTML'deki id değerleriyle elemanları yakalıyoruz
+    const navMenu = document.getElementById("navMenu");
+    const overlay = document.getElementById("menuOverlay");
+
+    // 'active' sınıfı varsa siler, yoksa ekler (toggle işlemi)
+    navMenu.classList.toggle("active");
+    overlay.classList.toggle("active");
+}
+	
+	
         // Şehirler arası km matrisi
         const distances = {
             "Aydın-Uşak": 200,
