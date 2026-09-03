@@ -204,7 +204,7 @@ select:focus, input:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #c1b6ec; /* Koyu arka plan */
+    background-color: #1a1a1a; /* Koyu arka plan */
     padding: 12px 20px;
     position: relative;
     z-index: 1000;
